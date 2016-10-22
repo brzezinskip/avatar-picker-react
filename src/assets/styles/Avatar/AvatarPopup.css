@@ -7,6 +7,9 @@
     margin: auto;
     position: relative;
     display: inline-block;
+    opacity: 0;
+    transition: all 0.2s ease-in;
+    transform: scale(0.4);
 }
 .avatar-popup:before {
     bottom: 100%;
