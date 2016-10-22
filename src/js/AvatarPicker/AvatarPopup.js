@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Avatar from './Avatar';
 
+import '../../assets/styles/Avatar/AvatarList.css';
+
 export default class AvatarPopup extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +14,7 @@ export default class AvatarPopup extends Component {
     );
     return (
       <div className="avatar-popup">
-        <ul>
+        <ul className="avatar-list">
           { avatars }
         </ul>
       </div>

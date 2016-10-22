@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../assets/styles/Avatar.css';
+import '../../assets/styles/Avatar/Avatar.css';
 
 export default class Avatar extends Component {
   constructor(props) {

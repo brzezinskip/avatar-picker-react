@@ -1,0 +1,10 @@
+.avatar {
+  max-width: 60px;
+  display: inline;
+}
+
+.avatar-image {
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+};
