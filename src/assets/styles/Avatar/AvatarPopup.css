@@ -1,3 +1,25 @@
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translate3d(0,0,0);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+
+  80% {
+    opacity: 1;
+    transform: scale(0.89);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
+  }
+}
+
 .avatar-popup {
     width: 280px;
     border-radius: 5px;
@@ -7,10 +29,15 @@
     margin: auto;
     position: relative;
     display: inline-block;
-    opacity: 0;
     transition: all 0.2s ease-in;
-    transform: scale(0.4);
+    opacity: 0;
 }
+
+.show {
+    opacity: 1;
+    animation: show 0.45s;
+}
+
 .avatar-popup:before {
     bottom: 100%;
     left: 50%;
