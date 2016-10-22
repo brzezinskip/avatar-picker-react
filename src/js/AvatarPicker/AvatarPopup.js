@@ -11,7 +11,9 @@ export default class AvatarPopup extends Component {
 
   render() {
     const avatars = this.props.avatars.map(avatar =>
-      <Avatar avatar={ avatar } key={ avatar.id }/>
+      <li className="avatar" key={ avatar.id }>
+        <Avatar avatar={ avatar } />
+      </li>
     );
     return (
       <div className="avatar-popup">
