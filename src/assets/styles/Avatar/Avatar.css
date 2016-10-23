@@ -1,9 +1,60 @@
-.avatar {
-  width: 60px;
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.list-avatar {
   float: left;
+  width: 60px;
+  height: 60px;
+  margin-right: 14px;
+  margin-bottom: 14px;
+}
+
+.list-avatar:nth-child(4) {
+  margin-right: -14px;
+}
+
+.avatar:hover {
+  cursor: pointer;
 }
 
 .avatar-image {
   width: 60px;
-  border-radius: 30px;
-};
+  height: 60px;
+  border-radius: 50%;
+}
+
+.main-avatar .avatar-image {
+  border: 1px solid transparent;
+}
+
+.avatar-image:hover {
+  border: 1px solid rgb(197, 198, 199);
+}
+
+.list-avatar .avatar-image:hover {
+  opacity: 0.2;
+  background-color: lightblue;
+}
+
+.border-animation {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid lightblue;
+  width: 60px;
+  height: 60px;
+  border-right-color: transparent;
+  animation: rotate 0.5s infinite linear;
+}
+
+.overlay {
+  border: 3px solid transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.overlay:hover {
+  border: 3px solid rgb(197, 198, 199);
+}

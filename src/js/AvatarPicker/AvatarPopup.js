@@ -10,10 +10,12 @@ export default class AvatarPopup extends Component {
   render() {
 
     const avatars = this.props.avatars.map(avatar =>
-      <li className="avatar" key={ avatar.id }>
+      <li className="avatar list-avatar" key={ avatar.id }>
         <Avatar
           avatar={ avatar }
           onPress={ this.props.onPress }
+          isSelected={ false }
+          isMainScreenAvatar={ false }
         />
       </li>
     );

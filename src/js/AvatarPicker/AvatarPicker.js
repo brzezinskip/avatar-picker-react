@@ -12,15 +12,24 @@ export default class AvatarPicker extends Component {
 
     this.state ={
       activeAvatar: {},
+      avatarCopy: {},
       popupOpened: false,
     };
   };
 
   onAvatarSelected(avatar) {
+    avatar.isLoading = true;
     this.setState({
       activeAvatar: avatar,
-      popupOpened: false,
-    });
+      avatarCopy: this.state.activeAvatar,
+    })
+    setTimeout(() => {
+      avatar.isLoading = false;
+      this.setState({
+        activeAvatar: avatar,
+        popupOpened: false,
+      });
+    }, 1000)
   };
 
   onPopupOpened() {
@@ -30,14 +39,22 @@ export default class AvatarPicker extends Component {
   }
 
   render() {
-    const activeAvatar = Object.keys(this.state.activeAvatar).length ?
-      this.state.activeAvatar : this.props.avatars[0]
+    let activeAvatar;
+    if (Object.keys(this.state.activeAvatar).length && !this.state.activeAvatar.isLoading) {
+      activeAvatar = this.state.activeAvatar;
+    } else if (Object.keys(this.state.avatarCopy).length) {
+      activeAvatar = this.state.avatarCopy;
+    } else {
+      activeAvatar = this.props.avatars[0]
+    }
     return (
       <div className="avatar-picker">
         <div className="selected-avatar">
           <Avatar
             avatar={ activeAvatar }
             onPress={ this.onPopupOpened }
+            isSelected={ this.state.popupOpened }
+            isMainScreenAvatar
           />
         </div>
         <AvatarPopup
