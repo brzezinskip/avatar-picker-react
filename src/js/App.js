@@ -9,6 +9,10 @@ const avatars = [
   { "src": require("../assets/images/avatar4.png"), "label": "Avatar 4", "id": 4 },
   { "src": require("../assets/images/avatar5.png"), "label": "Avatar 5", "id": 5 },
   { "src": require("../assets/images/avatar6.png"), "label": "Avatar 6", "id": 6 },
+  { "src": require("../assets/images/avatar3.png"), "label": "Avatar 3", "id": 7 },
+  { "src": require("../assets/images/avatar4.png"), "label": "Avatar 4", "id": 8 },
+  { "src": require("../assets/images/avatar5.png"), "label": "Avatar 5", "id": 9 },
+  { "src": require("../assets/images/avatar6.png"), "label": "Avatar 6", "id": 10 },
 ];
 
 export default class App extends Component {

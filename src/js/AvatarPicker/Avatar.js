@@ -19,17 +19,19 @@ export default class Avatar extends Component {
     const isLoadingBorderStyle = (this.props.avatar.isLoading) ? {
       border: '3px solid transparent',
     } : {};
+    const imageStyles = `avatar-image ${ this.props.isMainScreenAvatar ?
+      'main' : 'list' } ${ this.props.avatar.isSelected ? 'selected' : ''} `
     return (
       <div
         className={ `avatar ${ this.props.isMainScreenAvatar ? 'main-avatar' : 'list-avatar' }` }
       >
         { this.generateLoadingBorder() }
         <div
-          className={ `${ (this.props.isMainScreenAvatar) ? '' : 'overlay' }` }
+          className={ `${ (this.props.isMainScreenAvatar) ? '' : 'overlay' } ${ this.props.avatar.isSelected ? 'selected': '' }` }
           style={ isLoadingBorderStyle }
         >
           <img
-            className={ `avatar-image ${ this.props.isSelected ? 'main' : 'list' }` }
+            className={ imageStyles }
             src={ this.props.avatar.src }
             alt='avatar'
             onClick={ () => this.props.onPress(this.props.avatar) }

@@ -12,7 +12,7 @@ export default class AvatarPicker extends Component {
     this.onBlur = this.onBlur.bind(this);
 
     this.state ={
-      activeAvatar: {},
+      activeAvatar: this.props.avatars[0],
       avatarCopy: {},
       popupOpened: false,
     };
@@ -26,10 +26,13 @@ export default class AvatarPicker extends Component {
 
   onAvatarSelected(avatar) {
     avatar.isLoading = true;
+    avatar.isSelected = true;
     this.setState({
       activeAvatar: avatar,
       avatarCopy: this.state.activeAvatar,
     });
+
+    this.state.activeAvatar.isSelected = false;
 
     setTimeout(() => {
       avatar.isLoading = false;
@@ -52,8 +55,6 @@ export default class AvatarPicker extends Component {
       activeAvatar = this.state.activeAvatar;
     } else if (Object.keys(this.state.avatarCopy).length) {
       activeAvatar = this.state.avatarCopy;
-    } else {
-      activeAvatar = this.props.avatars[0]
     }
     return (
       <div className="avatar-picker">

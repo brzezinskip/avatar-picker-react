@@ -20,6 +20,16 @@
   }
 }
 
+@keyframes hide {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
 .avatar-popup {
     width: 280px;
     border-radius: 5px;
@@ -38,6 +48,10 @@
     visibility: visible;
     opacity: 1;
     animation: show 0.45s;
+}
+
+.hide {
+  animation: hide 0.45s;
 }
 
 .avatar-popup:before {
