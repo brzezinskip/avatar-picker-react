@@ -35,6 +35,7 @@ export default class AvatarPopup extends Component {
         />
       </li>
     );
+
     return (
       <div ref='popup' className={`avatar-popup ${ this.props.isOpened? 'show' : 'hide' }`} >
         <p className="choose-text"> Choose your avatar </p>

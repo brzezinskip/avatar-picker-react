@@ -32,7 +32,8 @@ export default class AvatarPicker extends Component {
       avatarCopy: this.state.activeAvatar,
     });
 
-    this.state.activeAvatar.isSelected = false;
+    const currentlySelected = this.state.activeAvatar;
+    currentlySelected.isSelected = false;
 
     setTimeout(() => {
       avatar.isLoading = false;
