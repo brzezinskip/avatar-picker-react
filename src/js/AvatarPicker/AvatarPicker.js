@@ -8,7 +8,8 @@ export default class AvatarPicker extends Component {
   constructor(props) {
     super(props);
     this.onAvatarSelected = this.onAvatarSelected.bind(this);
-    this.onPopupOpened = this.onPopupOpened.bind(this);
+    this.onPopupToggled = this.onPopupToggled.bind(this);
+    this.onBlur = this.onBlur.bind(this);
 
     this.state ={
       activeAvatar: {},
@@ -17,22 +18,29 @@ export default class AvatarPicker extends Component {
     };
   };
 
+  onBlur(e) {
+    this.setState({
+      popupOpened: false,
+    });
+  }
+
   onAvatarSelected(avatar) {
     avatar.isLoading = true;
     this.setState({
       activeAvatar: avatar,
       avatarCopy: this.state.activeAvatar,
-    })
+    });
+
     setTimeout(() => {
       avatar.isLoading = false;
       this.setState({
         activeAvatar: avatar,
         popupOpened: false,
       });
-    }, 1000)
+    }, 1000);
   };
 
-  onPopupOpened() {
+  onPopupToggled() {
     this.setState({
       popupOpened: !this.state.popupOpened,
     });
@@ -52,7 +60,7 @@ export default class AvatarPicker extends Component {
         <div className="selected-avatar">
           <Avatar
             avatar={ activeAvatar }
-            onPress={ this.onPopupOpened }
+            onPress={ this.onPopupToggled }
             isSelected={ this.state.popupOpened }
             isMainScreenAvatar
           />
@@ -61,6 +69,7 @@ export default class AvatarPicker extends Component {
           avatars={ this.props.avatars }
           onPress={ this.onAvatarSelected }
           isOpened={ this.state.popupOpened }
+          onBlur={ this.onBlur }
         />
       </div>
     );

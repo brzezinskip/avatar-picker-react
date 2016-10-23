@@ -1,11 +1,27 @@
 import React, { Component } from 'react';
 import Avatar from './Avatar';
-import { pulse } from 'react-animations'
 
 import '../../assets/styles/Avatar/AvatarList.css';
 import '../../assets/styles/Avatar/AvatarPopup.css';
 
 export default class AvatarPopup extends Component {
+
+  constructor(props) {
+    super(props);
+    this.clickOutsideElement = this.clickOutsideElement.bind(this);
+  }
+
+  componentDidMount() {
+    window.__app_container.addEventListener('click', this.clickOutsideElement)
+  }
+
+  clickOutsideElement(e) {
+    const popup = this.refs.popup;
+
+    if (!popup.contains(e.target) && this.props.isOpened) {
+      this.props.onBlur()
+    }
+  }
 
   render() {
 
@@ -20,7 +36,7 @@ export default class AvatarPopup extends Component {
       </li>
     );
     return (
-      <div className={`avatar-popup ${ this.props.isOpened? 'show' : '' }`} style={ pulse }>
+      <div ref='popup' className={`avatar-popup ${ this.props.isOpened? 'show' : '' }`} >
         <p className="choose-text"> Choose your avatar </p>
         <ul className="avatar-list">
           { avatars }

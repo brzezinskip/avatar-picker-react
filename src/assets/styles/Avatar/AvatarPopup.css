@@ -31,9 +31,11 @@
     display: inline-block;
     transition: all 0.2s ease-in;
     opacity: 0;
+    visibility: hidden;
 }
 
 .show {
+    visibility: visible;
     opacity: 1;
     animation: show 0.45s;
 }

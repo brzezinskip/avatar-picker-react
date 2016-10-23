@@ -11,7 +11,7 @@ const avatars = [
   { "src": require("../assets/images/avatar6.png"), "label": "Avatar 6", "id": 6 },
 ];
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
@@ -23,5 +23,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
