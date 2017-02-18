@@ -24,6 +24,7 @@ export default class AvatarPopup extends Component {
   }
 
   render() {
+    //tutaj musimy tez dodac nasz input do filtrowania
 
     const avatars = this.props.avatars.map(avatar =>
       <li className="avatar list-avatar" key={ avatar.id }>
@@ -42,6 +43,7 @@ export default class AvatarPopup extends Component {
         <ul className="avatar-list">
           { avatars }
         </ul>
+        <input onChange={ this.props.onInputChange } type="text"/>
       </div>
     );
   }

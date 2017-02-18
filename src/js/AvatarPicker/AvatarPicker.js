@@ -51,6 +51,7 @@ export default class AvatarPicker extends Component {
   }
 
   render() {
+    //glowny komponent avatarpicker, w ktorym trzymamy cala logike do obslugi dropdowna
     let activeAvatar;
     if (Object.keys(this.state.activeAvatar).length && !this.state.activeAvatar.isLoading) {
       activeAvatar = this.state.activeAvatar;
@@ -72,6 +73,7 @@ export default class AvatarPicker extends Component {
           onPress={ this.onAvatarSelected }
           isOpened={ this.state.popupOpened }
           onBlur={ this.onBlur }
+          onInputChange={ this.props.onInputChange }
         />
       </div>
     );
